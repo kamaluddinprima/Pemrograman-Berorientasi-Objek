@@ -1,5 +1,5 @@
-<!-- Nama  : Ahmad Daniyal Fayyadh -->
-<!-- NIM   : 20051397037 -->
+<!-- Nama  : Muhammad Kamaluddin Primajaya -->
+<!-- NIM   : 20051397035 -->
 <!-- Prodi : D4 Manajemen Informatika - 2020A -->
 <?php
 
