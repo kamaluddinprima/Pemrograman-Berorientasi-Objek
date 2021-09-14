@@ -1,5 +1,6 @@
-nama: muhammad rahulil
-prodi : d4 manajemen informatika
+<!-- Nama  : Muhammad Kamaluddin Primajaya -->
+<!-- NIM   : 20051397035 -->
+<!-- Prodi : D4 Manajemen Informatika - 2020A -->
 
 <!DOCTYPE HTML>  
 <html>
