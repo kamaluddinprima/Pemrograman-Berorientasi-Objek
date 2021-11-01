@@ -1,0 +1,9 @@
+.table1 {
+    color: #232323;
+    border-collapse: collapse;
+}
+ 
+.table1, td {
+    border: 1px solid #999;
+    padding: 2px 4px;
+}
