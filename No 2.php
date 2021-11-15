@@ -1,37 +1,56 @@
 <!-- Nama   : Muhammad Kamaluddin Primajaya -->
 <!-- NIM    : 20051397035 -->
-<!-- Kelas  : D4 Manajemen Informatika - 2020A -->
+<!-- Kelas  : 2020A - D4 Manajemen Informatika -->
+<!-- Praktikum 5 -->
 
-<?php 
+<?php
 
-class RerataNilai {
-    protected $value, $value2;
-    public function __construct($value, $value2){
-        $this->value = $value;
-        $this->value2 = $value2;
+class Pegawai {
+    public $nama, $gaji;
+
+    public function __construct($nama, $gaji){
+        $this->nama = $nama;
+        $this->gaji = $gaji;
     }
 
-    public function average($value3 = 0){
-        if ($value3 == 0) {
-            $str = $this->value . ' + ' . $this->value2 . ' / 2 = ';
-            return $str . ($this->value += $this->value2 ) / 2;
-
-        } else {
-            $str ='(' . $this->value . ' + ' . $this->value2 . ' + ' . $this->value2 . ') / 3 = ';
-            return $str . ($this->value += $this->value2 += $value3 ) / 3;
-        }
+    public function infoGaji(){
+        return $this->gaji;
     }
 }
 
+class Manajer extends Pegawai {
+    private $tunjangan;
 
-class RerataNilai2 extends RerataNilai{
-    public function __construct($value, $value2){
-        parent::__construct($value, $value2);
+    public function __construct($nama, $gaji, $tunjangan){
+        $this->tunjangan = $tunjangan;
+        parent::__construct($nama,$gaji);
     }
 
-    public function average($value3 = 0){
-        return parent::average($value3);
+    public function infoGaji(){
+        return parent::infoGaji();
+    }
+
+    public function infoTunjangan(){
+        return $this->tunjangan;
     }
 }
 
-?>
+class Programmer extends Pegawai {
+    private $bonus;
+
+    public function __construct($nama, $gaji, $bonus){
+        $this->bonus = $bonus;
+        parent::__construct($nama, $gaji);
+    }
+
+    public function infoGaji(){
+        return parent::infoGaji();
+    }
+
+    public function infoBonus(){
+        return $this->bonus;
+    }
+}
+
+$manajer = new Manajer('Kamaluddin', 20000000, 5000000);
+$programmer = new Programmer('Prima', 10000000, 3000000);

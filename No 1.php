@@ -1,54 +1,65 @@
 <!-- Nama   : Muhammad Kamaluddin Primajaya -->
 <!-- NIM    : 20051397035 -->
-<!-- Kelas  : D4 Manajemen Informatika - 2020A -->
+<!-- Kelas  : 2020A - D4 Manajemen Informatika -->
+<!-- Praktikum 5 -->
 
-<html lang="en">
-<head>
-    <link rel="stylesheet" type="text/css" href="No 1.css">
-    <title>Praktikum 4</title>
-</head>
-<body>
-<div class="container">
-<h2>Soal 1</h2>
-<!-- Program PHP -->
 <?php
 
-class Orang{
-    protected $nama,$umur;
-
-    public function __construct($nama,$umur){
-    $this->nama = $nama;
-    $this->umur = $umur;
-    }
-}
-
-class Dosen extends Orang{
-    private $nip;
+class Pegawai {
+    protected $nama;
     
-    public function __construct($nama, $umur, $nip){
-    $this->nip = $nip;
-    parent::__construct($nama, $umur);    
+    public function __construct($nama){
+        $this->nama = $nama;
     }
 
-    public function hasil(){
-        return $this->nama . ' berumur ' . $this->umur. ' dengan NIP ' . $this->nip;
+    public function getNama(){
+        return $this->nama;
+    }
+
+    public function getGaji(){
+        return Manajer::getGaji();
+    }
+
+    public function getKendaraan(){
+        return Kurir::getKendaraan();
     }
 }
 
-// Ganti nama "Primajaya", Umur "30", NIP "20051397035".
-$dosen1 = new Dosen('Kamaluddin', 37, 20051397045); 
-$dosen2 = new Dosen('Adul', 50, 20051397025);
-$dosen3 = new Dosen('Jaya', 25, 20051397075);
+class Manajer extends Pegawai {
+    private $gaji;
 
-echo $dosen1->hasil();
-echo '<br> <br>';
-echo $dosen2->hasil();
-echo '<br> <br>';
-echo $dosen3->hasil();
-echo '<br> <br>';
+    public function __construct($nama, $gaji){
+        $this->gaji = $gaji;
+        parent::__construct($nama);
+    }
 
-?>
-<!-- Akhir Program PHP -->
-</div>
-</body>
-</html>
+    public function getGaji(){
+        return $this->gaji;
+    }
+}
+
+class Kurir extends Pegawai {
+    private $kendaraan;
+
+    public function __construct($nama, $kendaraan){
+        $this->kendaraan = $kendaraan;
+        parent::__construct($nama);
+    }
+
+    public function getKendaraan(){
+        return $this->kendaraan;
+    }
+}
+
+class Info{
+    public static function info(Pegawai $pegawai){
+        return 'Manajer ' . $pegawai->getNama() . ' mendapatkan Gaji Rp. ' . $pegawai->getGaji();
+    }
+
+    public static function infoKurir(Pegawai $pegawai){
+        return 'Kurir ' . $pegawai->getNama() . ' mendapatkan Hadiah ' . $pegawai->getKendaraan();
+    }
+}
+
+$manajer = new Manajer ('Kamaluddin', 50000000);
+$kurir = new Kurir ('Prima', 'ASUS ROG');
