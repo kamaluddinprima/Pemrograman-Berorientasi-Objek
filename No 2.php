@@ -1,56 +1,65 @@
-<!-- Nama   : Muhammad Kamaluddin Primajaya -->
-<!-- NIM    : 20051397035 -->
-<!-- Kelas  : 2020A - D4 Manajemen Informatika -->
-<!-- Praktikum 5 -->
+<?php 
 
-<?php
+require_once '../Interface Abstract/Interface.php';
 
-class Pegawai {
-    public $nama, $gaji;
-
-    public function __construct($nama, $gaji){
-        $this->nama = $nama;
-        $this->gaji = $gaji;
+class Airplane implements Flyer {
+    public function takeOff() {
+        return 'Pesawat lepas landas..';
+    }
+    
+    public function land() {
+        return 'Pesawat mendarat';
     }
 
-    public function infoGaji(){
-        return $this->gaji;
+    public function fly() {
+        return 'Pesawat dalam perjalanan';
     }
 }
 
-class Manajer extends Pegawai {
-    private $tunjangan;
-
-    public function __construct($nama, $gaji, $tunjangan){
-        $this->tunjangan = $tunjangan;
-        parent::__construct($nama,$gaji);
+class Bird implements Flyer {
+    public function takeOff() {
+        return 'Burung mencari makan';
+    }
+    
+    public function land() {
+        return 'Burung kembali pulang';
     }
 
-    public function infoGaji(){
-        return parent::infoGaji();
+    public function fly() {
+        return 'Burung terbang';
     }
 
-    public function infoTunjangan(){
-        return $this->tunjangan;
-    }
-}
-
-class Programmer extends Pegawai {
-    private $bonus;
-
-    public function __construct($nama, $gaji, $bonus){
-        $this->bonus = $bonus;
-        parent::__construct($nama, $gaji);
+    public function buildNest() {
+        return 'Burung membuat sarang';
     }
 
-    public function infoGaji(){
-        return parent::infoGaji();
-    }
-
-    public function infoBonus(){
-        return $this->bonus;
+    public function layEggs() {
+        return 'Burung bertelur';
     }
 }
 
-$manajer = new Manajer('Kamaluddin', 20000000, 5000000);
-$programmer = new Programmer('Prima', 10000000, 3000000);
+class Superman implements Flyer {
+    public function takeOff() {
+        return 'Superman mengejar Batman';
+    }
+    
+    public function land() {
+        return 'Superman melawan Batman';
+    }
+
+    public function fly() {
+        return 'Superman melancarkan pukulan';
+    }
+
+    public function leapBuilding() {
+        return 'Batman terpental menabrak bangunan pencakar langit';
+    }
+
+    public function stopBullet() {
+        return 'Polisi menembaki superman namun ditangkis';
+    }
+}
+
+$airplane = new Airplane;
+$bird = new Bird;
+$superman = new Superman;

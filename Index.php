@@ -1,10 +1,10 @@
 <!-- Nama   : Muhammad Kamaluddin Primajaya -->
 <!-- NIM    : 20051397035 -->
 <!-- Kelas  : 2020A - D4 Manajemen Informatika -->
-<!-- Praktikum 5 -->
+<!-- Praktikum 6 -->
 
 <?php 
-    require_once 'No 2.php';
+    require_once 'No 4.php';
 ?>
 
 <!DOCTYPE html>
@@ -12,23 +12,50 @@
 
 <head>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <title>Praktikum 5</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        
+    <title>Praktikum 6</title>
 </head>
-
 <body>
-    <div class="container">
-        <h2 class="text-center">Praktikum 5</h2>
-        <div class="row">
-            <div class="mx-auto text-center border p-3 mt-2">
-                <h4 class="">Soal 2</h4>
-                <?= 'Manajer ' . $manajer->nama . ' mendapatkan Gaji Rp. ' . ($manajer->infoGaji()) . ' serta Tunjangan Rp. ' . ($manajer->infoTunjangan()); ?>
-                <br>
-                <?= 'Programmer ' . $programmer->nama . ' mendapatkan Gaji Rp. ' . ($programmer->infoGaji()) . ' serta Bonus Rp. ' . ($programmer->infoBonus()); ?>
-            </div>
-        </div>
+        <h2 class="text-center">Praktikum 6</h2>
+        <div class="container">
+  <div class="row">
+  <h4 class="text-center">Soal 4</h4>
+    <div class="col-4 mx-auto border p-2 mt-2">
+                <?= $riverBarge2->getMaxLoad(); ?> <br>
+                <?= $riverBarge2->addBox(12000); ?> <br>
+                <?= $riverBarge2->addBox(15000); ?> <br>
+                <?= $riverBarge2->addBox(1000); ?> <br>
+                <?= $riverBarge2->addBox(3000); ?> <br>
+                <?= $riverBarge2->dock(); ?> <br>
+                <?= $riverBarge2->cruise(); ?> <br>
+                <?= $riverBarge2->calcFuelNeeds(); ?> <br>
     </div>
+    <div class="col-4 mx-auto border p-2 mt-2">
+                <?= $seaPlane->getMaxLoad(); ?> <br>
+                <?= $seaPlane->addBox(12000); ?> <br>
+                <?= $seaPlane->addBox(8000); ?> <br>
+                <?= $seaPlane->addBox(3000); ?> <br>
+                <?= $seaPlane->dock(); ?> <br>
+                <?= $seaPlane->cruise(); ?> <br>
+                <?= $seaPlane->takeOff(); ?> <br>
+                <?= $seaPlane->fly(); ?> <br>
+                <?= $seaPlane->land(); ?> <br>
+                <?= $seaPlane->calcFuelNeeds(); ?> <br>
+    </div>
+    <div class="col mx-auto border p-2 mt-2">
+                <?= $helicopter->getMaxLoad(); ?> <br>
+                <?= $helicopter->addBox(8000); ?> <br>
+                <?= $helicopter->addBox(2000); ?> <br>
+                <?= $helicopter->addBox(3000); ?> <br>
+                <?= $helicopter->takeOff(); ?> <br>
+                <?= $helicopter->fly(); ?> <br>
+                <?= $helicopter->land(); ?> <br>
+                <?= $helicopter->calcFuelNeeds(); ?> <br>
+    </div>
+  </div>
+</div>
 </body>
 
 </html>
